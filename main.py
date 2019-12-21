@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 
 
 # Labels for real and fake frames
-df = pd.DataFrame({'frame': [], 'real': []})
+df = pd.DataFrame({'frame': [], 'label': []})
 
 for i in range(0, 2):
     # Split fake video into frames
@@ -46,7 +46,7 @@ for i in range(0, 2):
             nr = int(r * 2)
 
             faceimg = img[ny:ny+nr, nx:nx+nr]
-            #smallimg = cv2.resize(faceimg, (32, 32))
+            faceimg = cv2.resize(faceimg, (281, 281))
             j += 1
             cv2.imwrite("frames_faces/frame{}_{}_{}.jpg".format(i, frameNumber, j), faceimg)
 
